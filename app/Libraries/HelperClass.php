@@ -24,6 +24,7 @@ class HelperClass
         }
 
         return '';
+        echo 'yo';
     }
 
     public static function getHttpStatusText($code)
