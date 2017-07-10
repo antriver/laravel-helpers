@@ -8,8 +8,6 @@ use Tmd\LaravelSite\Models\Base\AbstractModel;
  * Class CreatedAtWithoutUpdatedAtTrait
  *
  * Allows a model to have only a createdAt column with no updatedAt
- *
- * @package Stickable
  */
 trait CreatedAtWithoutUpdatedAtTrait
 {

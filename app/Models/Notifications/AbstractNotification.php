@@ -16,8 +16,6 @@ use Auth;
 use Lang;
 
 /**
- * Stickable\Models\AbstractNotification
- *
  * @property integer                      $id
  * @property integer                      $type
  * @property integer                      $forUserId
@@ -30,34 +28,34 @@ use Lang;
  * @property string                       $text
  * @property \Carbon\Carbon               $createdAt
  * @property string                       $seenAt
- * @property-read \Stickable\Models\Comment $comment
- * @property-read \Stickable\Models\Message $message
- * @property-read \Stickable\Models\User    $user
- * @property-read \Stickable\Models\Post    $post
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @property-read \Tmd\LaravelSite\Models\Comment $comment
+ * @property-read \Tmd\LaravelSite\Models\Message $message
+ * @property-read \Tmd\LaravelSite\Models\User    $user
+ * @property-read \Tmd\LaravelSite\Models\Post    $post
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereType($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereForUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereFromUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         wherePostId($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereCommentId($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereNewCommentId($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereMessageId($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereAchievementId($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereText($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification
  *         whereSeenAt($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\Notifications\AbstractNotification unseen()
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification unseen()
  * @mixin \Eloquent
  */
 abstract class AbstractNotification extends AbstractModel implements BelongsToUserInterface
@@ -79,27 +77,6 @@ abstract class AbstractNotification extends AbstractModel implements BelongsToUs
     public function scopeUnseen($query)
     {
         return $query->whereNull('seenAt');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function comment()
-    {
-        return $this->belongsTo(Comment::class, 'commentId', 'id');
-    }
-
-    public function getComment($withTrashed = false)
-    {
-        return $this->getRelationFromRepository('commentId', 'CommentRepository', $withTrashed);
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function message()
-    {
-        return $this->belongsTo('\Stickable\Models\Message', 'messageId', 'id');
     }
 
     public function toArray()

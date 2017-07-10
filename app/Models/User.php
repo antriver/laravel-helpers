@@ -14,10 +14,11 @@ use Tmd\LaravelSite\Libraries\LanguageHelpers;
 use Tmd\LaravelSite\Libraries\Role;
 use Tmd\LaravelSite\Mail\ForgotDetailsMail;
 use Tmd\LaravelSite\Models\Base\AbstractModel;
+use Tmd\LaravelSite\Models\Interfaces\UserInterface;
 use Tmd\LaravelSite\Repositories\ImageRepository;
 
 /**
- * Stickable\Models\User
+ * Tmd\LaravelSite\Models\User
  *
  * @property int $id
  * @property string $username
@@ -30,22 +31,22 @@ use Tmd\LaravelSite\Repositories\ImageRepository;
  * @property \Carbon\Carbon|null $deactivatedAt
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\User onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\User onlyTrashed()
  * @method static bool|null restore()
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User whereDeactivatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User whereEmailVerified($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User whereImageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User whereRoles($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\User whereUsername($value)
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\User withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\Stickable\Models\User withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User whereDeactivatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User whereEmailVerified($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User whereImageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User whereRoles($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\User whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\User withoutTrashed()
  * @mixin \Eloquent
  */
-class User extends AbstractModel implements AuthenticatableContract, CanResetPasswordContract
+class User extends AbstractModel implements AuthenticatableContract, CanResetPasswordContract, UserInterface
 {
     use Authenticatable;
     use CanResetPassword;

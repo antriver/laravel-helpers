@@ -5,7 +5,7 @@ namespace Tmd\LaravelSite\Models;
 use Tmd\LaravelSite\Models\Base\AbstractModel;
 
 /**
- * Stickable\Models\UserSocialAccount
+ * Tmd\LaravelSite\Models\UserSocialAccount
  *
  * @mixin \Eloquent
  */

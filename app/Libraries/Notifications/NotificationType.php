@@ -6,22 +6,6 @@ use ReflectionClass;
 
 class NotificationType
 {
-    const COMMENT_ON_CREATED_POST = 1;
-    const COMMENT_REPLY = 2;
-
-    const LIKED_POST = 4;
-    const LIKED_COMMENT = 8;
-
-    const LIKED_TASK_TO_DO = 16;
-    const LIKED_STICKER_TO_DO = 32;
-    const LIKED_STICKER_COMPLETION = 64;
-    const LIKED_JOIN = 128;
-
-    const SUBMISSION_APPROVED = 256;
-    const SUBMISSION_REJECTED = 512;
-    const STICKER_EARNT = 1024;
-    const MESSAGE = 2048;
-
     /**
      * Return all the defined notification types.
      * name => int
@@ -43,7 +27,7 @@ class NotificationType
      */
     public static function getAllNames()
     {
-        return array_flip(self::getAll());
+        return array_flip(static::getAll());
     }
 
     /**
@@ -55,7 +39,7 @@ class NotificationType
      */
     public static function getName($int)
     {
-        $names = self::getAllNames();
+        $names = static::getAllNames();
 
         return array_key_exists($int, $names) ? $names[$int] : null;
     }
@@ -67,10 +51,7 @@ class NotificationType
      */
     public static function getEnforcedInts()
     {
-        return [
-            self::POST_DELETED,
-            self::STAFF_ROOM_POST,
-        ];
+        return [];
     }
 
     public static function ensureEnforcedEnabled($value)
@@ -91,9 +72,7 @@ class NotificationType
      */
     public static function getModeratorInts()
     {
-        return [
-            self::STAFF_ROOM_POST,
-        ];
+        return [];
     }
 
     /**
@@ -103,7 +82,7 @@ class NotificationType
      */
     public static function getDefaultSum()
     {
-        return array_sum(self::getAll());
+        return array_sum(static::getAll());
     }
 
     /**
@@ -113,7 +92,7 @@ class NotificationType
      */
     public static function getDefaultPushSum()
     {
-        return array_sum(self::getAll());
+        return array_sum(static::getAll());
     }
 
     /**
@@ -123,6 +102,6 @@ class NotificationType
      */
     public static function getDefaultEmailSum()
     {
-        return self::MESSAGE + self::ACHIEVEMENT + self::NEW_FOLLOWER + self::POST_APPROVED;
+        return 0;
     }
 }

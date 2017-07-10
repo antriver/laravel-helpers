@@ -8,8 +8,6 @@ use Schema;
 use Tmd\LaravelSite\Models\Traits\OutputsDatesTrait;
 
 /**
- * Stickable\Models\Base\AbstractModel
- *
  * @mixin \Eloquent
  */
 class AbstractModel extends EloquentModel

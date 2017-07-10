@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Images\Processors;
+namespace Tmd\LaravelSite\Libraries\Images;
 
 use Imagick;
 use Intervention\Image\Image as InterventionImage;

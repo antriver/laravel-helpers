@@ -3,7 +3,7 @@
 namespace Tmd\LaravelSite\Models\Notifications;
 
 /**
- * Stickable\Models\Notifications\SingleNotification
+ * Tmd\LaravelSite\Models\Notifications\SingleNotification
  *
  * @property int $id
  * @property int $type
@@ -21,25 +21,25 @@ namespace Tmd\LaravelSite\Models\Notifications;
  * @property string|null $text
  * @property \Carbon\Carbon $createdAt
  * @property string|null $seenAt
- * @property-read \Stickable\Models\Comment|null $comment
- * @property-read \Stickable\Models\Message|null $message
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\AbstractNotification unseen()
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereCommentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereEarningId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereForUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereFromUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereLikeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereMessageId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereNewCommentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification wherePostId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereSeenAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereStickerId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereSubmissionId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereTaskId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereText($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Notifications\SingleNotification whereType($value)
+ * @property-read \Tmd\LaravelSite\Models\Comment|null $comment
+ * @property-read \Tmd\LaravelSite\Models\Message|null $message
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\AbstractNotification unseen()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereCommentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereEarningId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereForUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereFromUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereLikeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereMessageId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereNewCommentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification wherePostId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereSeenAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereStickerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereSubmissionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereTaskId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\Notifications\SingleNotification whereType($value)
  * @mixin \Eloquent
  */
 class SingleNotification extends AbstractNotification

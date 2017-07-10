@@ -7,7 +7,7 @@ use Tmd\LaravelSite\Models\Interfaces\BelongsToUserInterface;
 use Tmd\LaravelSite\Models\Traits\BelongsToUserTrait;
 
 /**
- * Stickable\Models\EmailVerification
+ * Tmd\LaravelSite\Models\EmailVerification
  *
  * @property int $id
  * @property int $userId
@@ -16,13 +16,6 @@ use Tmd\LaravelSite\Models\Traits\BelongsToUserTrait;
  * @property int|null $isChange Is this the initial verification, or changing an existing user?
  * @property string $createdAt
  * @property string|null $resentAt
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\EmailVerification whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\EmailVerification whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\EmailVerification whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\EmailVerification whereIsChange($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\EmailVerification whereResentAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\EmailVerification whereToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\EmailVerification whereUserId($value)
  * @mixin \Eloquent
  */
 class EmailVerification extends AbstractModel implements BelongsToUserInterface

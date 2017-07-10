@@ -177,7 +177,7 @@ class PassportTokenAuthGuard implements Guard
      */
     private function getPassportClient()
     {
-        return new Client(1, 'Stickable Password Grant Client', null);
+        return new Client(1, 'Password Grant Client', null);
     }
 
     /**

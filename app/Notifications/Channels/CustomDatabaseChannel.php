@@ -7,8 +7,8 @@ use Tmd\LaravelSite\Notifications\Base\AbstractActionLaravelNotification;
 use Tmd\LaravelSite\Repositories\NotificationRepository;
 
 /**
- * Used instead of the Laravel's built in database channel, to make things more like how
- * Stickable worked before.
+ * Used instead of the Laravel's built in database channel, to make things more flexible.
+ * e.g. the ability to filter notifications by type.
  * For example, we don't want to JSON encode the notification, and we want to store an action id.
  */
 class CustomDatabaseChannel

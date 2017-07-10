@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Traits;
+namespace Tmd\LaravelSite\Http\Traits;
 
 use Tmd\LaravelSite\Models\User;
 

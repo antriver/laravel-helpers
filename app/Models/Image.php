@@ -1,41 +1,12 @@
 <?php
 
-namespace Stickable\Models;
+namespace Tmd\LaravelSite\Models;
 
 use Config;
-use Stickable\Models\Base\AbstractModel;
-use Stickable\Models\Interfaces\BelongsToUserInterface;
-use Stickable\Models\Traits\BelongsToUserTrait;
+use Tmd\LaravelSite\Models\Base\AbstractModel;
+use Tmd\LaravelSite\Models\Interfaces\BelongsToUserInterface;
+use Tmd\LaravelSite\Models\Traits\BelongsToUserTrait;
 
-/**
- * Stickable\Models\Image
- *
- * @property int $id
- * @property int $userId
- * @property string $directory
- * @property string|null $filename
- * @property int|null $width
- * @property int|null $height
- * @property int|null $size
- * @property int|null $optimizedSize
- * @property bool $hasThumbnail
- * @property string|null $originalUrl
- * @property \Carbon\Carbon $createdAt
- * @property string|null $updatedAt
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereDirectory($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereFilename($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereHasThumbnail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereHeight($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereOptimizedSize($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereOriginalUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereSize($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Stickable\Models\Image whereWidth($value)
- * @mixin \Eloquent
- */
 class Image extends AbstractModel implements BelongsToUserInterface
 {
     use BelongsToUserTrait;

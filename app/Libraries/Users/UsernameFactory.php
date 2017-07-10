@@ -29,7 +29,7 @@ class UsernameFactory
     {
         $latestUserId = $this->userRepository->getMaxId();
 
-        return 'Stickabler'.($latestUserId + 1);
+        return 'Member'.($latestUserId + 1);
     }
 
     public function makeUsernameFromSocialUser(AbstractUser $socialUser)

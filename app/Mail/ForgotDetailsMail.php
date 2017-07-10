@@ -32,7 +32,7 @@ class ForgotDetailsMail extends ExtendedMailable
     public function build()
     {
         $this
-            ->subject("Your Stickable account information")
+            ->subject("Your account information")
             ->line("(That's your username, in case you forgot it.)")
             ->line(
                 "You are receiving this email because somebody filled out the Forgotten Details form and entered

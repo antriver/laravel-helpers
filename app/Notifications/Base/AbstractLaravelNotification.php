@@ -8,8 +8,6 @@ use Tmd\LaravelSite\Mail\NotificationMail;
 /**
  * Note we don't use the ShouldQueue interface here, because all Notification sending happens in
  * queued tasks anyway.
- *
- * @package Stickable\Notifications\Base
  */
 abstract class AbstractLaravelNotification extends Notification
 {
@@ -18,7 +16,7 @@ abstract class AbstractLaravelNotification extends Notification
      *
      * @param  mixed $notifiable
      *
-     * @return \Stickable\Mail\NotificationMail
+     * @return \Tmd\LaravelSite\Mail\NotificationMail
      */
     public function toMail($notifiable)
     {
