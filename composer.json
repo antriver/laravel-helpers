@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Tmd\\LaravelSite\\": "app/"
+            "Tmd\\LaravelSite\\": "src/"
         }
     },
     "require": {
