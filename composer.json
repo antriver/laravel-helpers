@@ -21,7 +21,7 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "tmd/laravel-password-updater": "^0.0.2",
         "tmd/laravel-registers": "^2.1",
-        "tmd/laravel-repositories": "^1.6"
+        "tmd/laravel-repositories": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.3"

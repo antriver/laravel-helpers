@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea213eb281a4d27e137c16bd04d35a0f",
+    "content-hash": "8eef3040c499de537600ea0f468b08a4",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -2715,16 +2715,16 @@
         },
         {
             "name": "tmd/laravel-repositories",
-            "version": "1.6.3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antriver/laravel-repositories.git",
-                "reference": "9c5a2ba3915cbd0241988ef580543c093183624f"
+                "reference": "b098806f4e454c719bc8663760cdf1e5fabe6273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antriver/laravel-repositories/zipball/9c5a2ba3915cbd0241988ef580543c093183624f",
-                "reference": "9c5a2ba3915cbd0241988ef580543c093183624f",
+                "url": "https://api.github.com/repos/antriver/laravel-repositories/zipball/b098806f4e454c719bc8663760cdf1e5fabe6273",
+                "reference": "b098806f4e454c719bc8663760cdf1e5fabe6273",
                 "shasum": ""
             },
             "require": {
@@ -2752,7 +2752,7 @@
                 }
             ],
             "description": "Model repositories for Laravel 5.",
-            "time": "2017-03-05T23:52:08+00:00"
+            "time": "2017-11-12T00:13:08+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
