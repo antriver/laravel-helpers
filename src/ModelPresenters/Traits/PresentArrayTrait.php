@@ -2,13 +2,14 @@
 
 namespace Tmd\LaravelSite\ModelPresenters\Traits;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Tmd\LaravelSite\Libraries\Pagination\LengthAwarePaginator;
 
 trait PresentArrayTrait
 {
     /**
-     * @param array|\Iterator $models
+     * @param Model[]|\Iterator $models
      * @param array $args
      *
      * @return array

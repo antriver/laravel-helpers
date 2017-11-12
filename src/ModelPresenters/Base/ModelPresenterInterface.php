@@ -2,19 +2,19 @@
 
 namespace Tmd\LaravelSite\ModelPresenters\Base;
 
-use Tmd\LaravelSite\Models\Base\AbstractModel;
+use Illuminate\Database\Eloquent\Model;
 
 interface ModelPresenterInterface
 {
     /**
-     * @param AbstractModel $model
+     * @param Model $model
      *
      * @return mixed
      */
-    public function present(AbstractModel $model): array;
+    public function present(Model $model): array;
 
     /**
-     * @param array $models
+     * @param Model[] $models
      *
      * @return mixed
      */
