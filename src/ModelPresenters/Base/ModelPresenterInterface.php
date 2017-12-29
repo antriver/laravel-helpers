@@ -9,14 +9,14 @@ interface ModelPresenterInterface
     /**
      * @param Model $model
      *
-     * @return mixed
+     * @return array
      */
     public function present(Model $model): array;
 
     /**
      * @param Model[] $models
      *
-     * @return mixed
+     * @return array[]
      */
     public function presentArray($models): array;
 }

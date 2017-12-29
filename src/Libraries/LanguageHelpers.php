@@ -19,6 +19,36 @@ class LanguageHelpers
         return $num == 1 ? 'has' : 'have';
     }
 
+    /**
+     * Takes a number and adds "th, st, nd, rd, th" after it. Example 10 to 10th.
+     *
+     * @see http://phpsnips.com/snippet.php?id=37
+     *
+     * @param int $num
+     *
+     * @return string
+     */
+    public static function ordinal($num)
+    {
+        $test_c = abs($num) % 10;
+        $ext = ((abs($num) % 100 < 21 && abs($num) % 100 > 4) ? 'th'
+            : (($test_c < 4) ? ($test_c < 3) ? ($test_c < 2) ? ($test_c < 1)
+                ? 'th' : 'st' : 'nd' : 'rd' : 'th'));
+
+        return number_format($num).$ext;
+    }
+
+    /**
+     * Add 's to the end of a string to make it possessive.
+     * If the string already ends in s, adds an apostrophe to the end.
+     * e.g.
+     * Jim -> Jim's
+     * Jesus -> Jesus'
+     *
+     * @param string $string
+     *
+     * @return string
+     */
     public static function possessive($string)
     {
         if (strtolower(substr($string, -1)) === 's') {
@@ -28,6 +58,23 @@ class LanguageHelpers
         return $string.'\'s';
     }
 
+    /**
+     * Truncate a string but break at the end of the last word instead of middle of a word.
+     * e.g.
+     * "Hello world this is my string."
+     * truncated to 15 chars becomes
+     * "Hello world..."
+     * instead of
+     * "Hello world thi"
+     *
+     * @param string $string
+     * @param int $limit
+     * @param string $cutter
+     * @param bool $returnArray If true will return an array to show where it was cut.
+     *                          If false just returns the new string.
+     *
+     * @return array|string
+     */
     public static function wordTruncate($string, $limit, $cutter = '...', $returnArray = false)
     {
         if (strlen($string) <= $limit) {
@@ -184,12 +231,13 @@ class LanguageHelpers
     }
 
     /**
-     * http://stackoverflow.com/questions/2690504/php-producing-relative-date-time-from-timestamps
-     * @param int    $timestamp
+     * @see http://stackoverflow.com/questions/2690504/php-producing-relative-date-time-from-timestamps
+     *
+     * @param int $timestamp
      * @param string $word
-     * @param bool   $yesterday
-     * @param bool   $longYears
-     * @param bool   $short
+     * @param bool $yesterday
+     * @param bool $longYears
+     * @param bool $short
      *
      * @return string
      */
@@ -280,9 +328,9 @@ class LanguageHelpers
      *
      * @see http://stackoverflow.com/a/25057951/710630
      *
-     * @param array  $array          Array to join
-     * @param string $glue           Glue for regular items
-     * @param string $conjunction    Glue for the last item
+     * @param array $array Array to join
+     * @param string $glue Glue for regular items
+     * @param string $conjunction Glue for the last item
      * @param string $twoConjunction Glue if there are only two items
      *
      * @return mixed|string
