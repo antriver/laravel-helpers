@@ -103,6 +103,26 @@ class AbstractModel extends EloquentModel
     }
 
     /**
+     * Increment or decrement a field atomically.
+     *
+     * @param $column
+     * @param $amount
+     * @param array $extra
+     *
+     * @return bool|int
+     */
+    public function adjust($column, $amount, array $extra = [])
+    {
+        if ($amount > 0) {
+            return $this->increment($column, $amount, $extra);
+        } elseif ($amount < 0) {
+            return $this->decrement($column, abs($amount), $extra);
+        }
+
+        return false;
+    }
+
+    /**
      * Return a Model related to this Model by looking it up in the given repository.
      *
      * @param string $field Field on this model that is the PK of the related model.
