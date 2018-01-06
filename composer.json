@@ -16,7 +16,6 @@
     "require": {
         "laravel/framework": "^5.4",
         "intervention/image": "^2.3",
-        "laravel/passport": "^2.0",
         "laravel/socialite": "^3.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "tmd/laravel-password-updater": "^0.0.2",
