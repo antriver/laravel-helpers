@@ -3,6 +3,7 @@
 namespace Tmd\LaravelSite\ModelPresenters\Base;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 interface ModelPresenterInterface
 {
@@ -14,7 +15,7 @@ interface ModelPresenterInterface
     public function present(Model $model): array;
 
     /**
-     * @param Model[] $models
+     * @param Model[]|\Iterator|Collection $models
      *
      * @return array[]
      */

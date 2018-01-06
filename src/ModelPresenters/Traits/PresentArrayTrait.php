@@ -4,18 +4,21 @@ namespace Tmd\LaravelSite\ModelPresenters\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Tmd\LaravelSite\Libraries\Pagination\LengthAwarePaginator;
+use Tmd\LaravelSite\ModelPresenters\Base\ModelPresenterInterface;
 
 trait PresentArrayTrait
 {
     /**
-     * @param Model[]|\Iterator $models
+     * @param Model[]|\Iterator|Collection $models
      * @param array $args
      *
      * @return array
      */
     public function presentArray($models, ...$args): array
     {
+        /** @var ModelPresenterInterface $this */
         $array = [];
         foreach ($models as $model) {
             $array[] = $this->present($model, ...$args);
