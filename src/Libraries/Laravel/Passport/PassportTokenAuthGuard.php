@@ -11,7 +11,7 @@ use Laravel\Passport\Bridge\RefreshTokenRepository;
 use Laravel\Passport\Bridge\Scope;
 use Laravel\Passport\ClientRepository as PassportClientRepository;
 use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
-use Tmd\LaravelSite\Libraries\Laravel\Auth\CachedEloquentUserProvider;
+use Tmd\LaravelSite\Libraries\Laravel\Auth\RepositoryUserProvider;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
@@ -54,12 +54,12 @@ class PassportTokenAuthGuard implements Guard
     /**
      * Create a new authentication guard.
      *
-     * @param CachedEloquentUserProvider    $provider
+     * @param RepositoryUserProvider    $provider
      * @param \Illuminate\Http\Request      $request
      * @param PassportAccessTokenRepository $accessTokenRepository
      */
     public function __construct(
-        CachedEloquentUserProvider $provider,
+        RepositoryUserProvider $provider,
         Request $request,
         PassportAccessTokenRepository $accessTokenRepository
     ) {

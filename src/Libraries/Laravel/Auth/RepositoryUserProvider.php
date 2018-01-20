@@ -4,11 +4,12 @@ namespace Tmd\LaravelSite\Libraries\Laravel\Auth;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider as UserProviderInterface;
+use Illuminate\Support\Facades\Cache;
+use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
 use Tmd\LaravelSite\Models\User;
-use Tmd\LaravelSite\Repositories\UserRepository;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 
-class CachedEloquentUserProvider implements UserProviderInterface
+class RepositoryUserProvider implements UserProviderInterface
 {
     /**
      * @var PasswordHasher
@@ -16,11 +17,11 @@ class CachedEloquentUserProvider implements UserProviderInterface
     protected $hasher;
 
     /**
-     * @var UserRepository
+     * @var RepositoryInterface
      */
     private $userRepository;
 
-    public function __construct(UserRepository $userRepository, PasswordHasher $hasher)
+    public function __construct(RepositoryInterface $userRepository, PasswordHasher $hasher)
     {
         $this->hasher = $hasher;
         $this->userRepository = $userRepository;
@@ -29,13 +30,18 @@ class CachedEloquentUserProvider implements UserProviderInterface
     /**
      * Retrieve a user by their unique identifier.
      *
-     * @param  mixed $identifier
+     * @param  mixed $id
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
-    public function retrieveById($identifier)
+    public function retrieveById($id)
     {
-        return $this->userRepository->find($identifier);
+        if ($user = $this->userRepository->find($id)) {
+            /** @var Authenticatable $user */
+            return $user;
+        }
+
+        return null;
     }
 
     /**
@@ -48,7 +54,22 @@ class CachedEloquentUserProvider implements UserProviderInterface
      */
     public function retrieveByToken($identifier, $token)
     {
+        return Cache::remember(
+            'user-id-token:'.$identifier.$token,
+            60,
+            function () use ($identifier, $token) {
+                $user = $this->userRepository->find($identifier);
 
+                if ($user) {
+                    /** @var Authenticatable $user */
+                    if ($user->getRememberToken() === $token) {
+                        return $user;
+                    }
+                }
+
+                return null;
+            }
+        );
     }
 
     /**

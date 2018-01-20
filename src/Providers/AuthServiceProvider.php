@@ -6,7 +6,7 @@ use Auth;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Tmd\LaravelSite\Repositories\UserRepository;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
-use Tmd\LaravelSite\Libraries\Laravel\Auth\CachedEloquentUserProvider;
+use Tmd\LaravelSite\Libraries\Laravel\Auth\RepositoryUserProvider;
 use Tmd\LaravelSite\Libraries\Laravel\Passport\PassportAccessTokenRepository;
 use Tmd\LaravelSite\Libraries\Laravel\Passport\PassportTokenAuthGuard;
 
@@ -18,9 +18,9 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         Auth::provider(
-            'cached-eloquent',
+            'repository',
             function ($app) {
-                return new CachedEloquentUserProvider(
+                return new RepositoryUserProvider(
                     $this->getUserRepository(),
                     app(PasswordHasher::class)
                 );
