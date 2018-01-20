@@ -76,7 +76,7 @@ class UserBan extends AbstractModel implements BelongsToUserInterface
     {
         $query->where(
             function ($query) {
-                return $query->whereNull('expiresAt')->orWhere('expiresAt', '>', date('Y-m-d H:i:s'));
+                return $query->whereNull('expiresAt')->orWhere('expiresAt', '>', (new Carbon())->toDateTimeString());
             }
         );
     }
@@ -85,7 +85,7 @@ class UserBan extends AbstractModel implements BelongsToUserInterface
     {
         $query->where(
             function ($query) {
-                return $query->whereNotNull('expiresAt')->where('expiresAt', '<=', date('Y-m-d H:i:s'));
+                return $query->whereNotNull('expiresAt')->where('expiresAt', '<=', (new Carbon())->toDateTimeString());
             }
         );
     }

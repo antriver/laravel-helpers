@@ -11,7 +11,7 @@ class BannedUserException extends Exception
     {
         $message = 'This account is disabled';
         if ($ban->to) {
-            $message .= ' until <strong>'.date('Y-m-d H:i:s', strtotime($ban->to)).'</strong>';
+            $message .= ' until <strong>'.display_datetime($ban->to).'</strong>';
         }
         if ($ban->reason) {
             $message .= ' due to: <strong>'.$ban->reason.'</strong>';

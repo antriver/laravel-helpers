@@ -2,6 +2,7 @@
 
 namespace Tmd\LaravelSite\Libraries\Debug;
 
+use Carbon\Carbon;
 use Event;
 use Illuminate\Cache\Events\CacheHit;
 use Illuminate\Cache\Events\CacheMissed;
@@ -11,6 +12,7 @@ use Illuminate\Database\Events\QueryExecuted;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
+use Tmd\LaravelSite\Date\DateFormat;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheHit;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheMissed;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalKeyWritten;
@@ -41,7 +43,7 @@ class QueryLogger
             $queryLogger->info(
                 "\n\n=======\n{$_SERVER['REQUEST_METHOD']}\n{$_SERVER['REQUEST_URI']}"
                 //." \n".Request::server('HTTP_REFERER')
-                ."\n".date('Y-m-d H:i:s')
+                ."\n".(new Carbon())->toDateTimeString()
                 ."\n========="
             );
         }
