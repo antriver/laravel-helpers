@@ -3,6 +3,7 @@
 namespace Tmd\LaravelSite\Libraries\Laravel\Auth;
 
 use Carbon\Carbon;
+use Crypt;
 use Exception;
 use Illuminate\Auth\GuardHelpers;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -19,11 +20,6 @@ class DatabaseSessionGuard implements StatefulGuard
     use GuardHelpers;
 
     /**
-     * @var Store
-     */
-    protected $cache;
-
-    /**
      * How long (in minutes) to cache the user ID for a session ID?
      *
      * Default is 7 days.
@@ -31,16 +27,6 @@ class DatabaseSessionGuard implements StatefulGuard
      * @var int
      */
     protected $cacheLifetime = 10080;
-
-    /**
-     * @var Connection
-     */
-    protected $db;
-
-    /**
-     * @var Encrypter
-     */
-    protected $encrypter;
 
     /**
      * @var string
@@ -64,14 +50,8 @@ class DatabaseSessionGuard implements StatefulGuard
 
     public function __construct(
         UserProvider $provider,
-        Request $request,
-        Store $cache,
-        Connection $db,
-        Encrypter $encrypter
+        Request $request
     ) {
-        $this->cache = $cache;
-        $this->db = $db;
-        $this->encrypter = $encrypter;
         $this->provider = $provider;
         $this->request = $request;
     }
@@ -91,7 +71,7 @@ class DatabaseSessionGuard implements StatefulGuard
      */
     public function getToken()
     {
-        return $this->encrypter->encrypt($this->getSessionId(), false);
+        return Crypt::encryptString($this->getSessionId());
     }
 
     /**
@@ -111,7 +91,7 @@ class DatabaseSessionGuard implements StatefulGuard
         $token = $this->getTokenForRequest();
 
         if (!empty($token)) {
-            $this->sessionId = $this->encrypter->decrypt($token, false);
+            $this->sessionId = Crypt::decryptString($token);
 
             $userId = $this->findUserIdBySessionId($this->sessionId);
             if ($userId) {
@@ -264,11 +244,11 @@ class DatabaseSessionGuard implements StatefulGuard
     {
         $cacheKey = $this->getSessionIdUserIdCacheKey($sessionId);
 
-        if (($userId = $this->cache->get($cacheKey)) !== null) {
+        if (($userId = Cache::get($cacheKey)) !== null) {
             return $userId ?: null;
         }
 
-        $result = $this->db->selectOne(
+        $result = DB::selectOne(
             "SELECT `userId` FROM `{$this->table}` WHERE `id` = ? AND `loggedOutAt` IS NULL",
             [
                 $sessionId,
@@ -278,7 +258,7 @@ class DatabaseSessionGuard implements StatefulGuard
         $userId = $result ? $result->userId : null;
 
         // Cache false if the session was not found so we remember this session does not exist.
-        $this->cache->put($cacheKey, $userId ?: false, $this->cacheLifetime);
+        Cache::put($cacheKey, $userId ?: false, Cache::Lifetime);
 
         return $userId;
     }
@@ -288,7 +268,7 @@ class DatabaseSessionGuard implements StatefulGuard
      */
     protected function logoutSession(string $sessionId)
     {
-        $this->db->update(
+        DB::update(
             "UPDATE `{$this->table}` SET `loggedOutAt` = ? WHERE `id` = ?",
             [
                 (new Carbon())->toDateTimeString(),
@@ -297,7 +277,7 @@ class DatabaseSessionGuard implements StatefulGuard
         );
 
         $cacheKey = $this->getSessionIdUserIdCacheKey($sessionId);
-        $this->cache->forget($cacheKey);
+        Cache::forget($cacheKey);
     }
 
     /**
@@ -318,7 +298,7 @@ class DatabaseSessionGuard implements StatefulGuard
         }
 
         $cacheKey = $this->getSessionIdUserIdCacheKey($sessionId);
-        $this->cache->put($cacheKey, $user->getAuthIdentifier(), $this->cacheLifetime);
+        Cache::put($cacheKey, $user->getAuthIdentifier(), Cache::Lifetime);
 
         return $sessionId;
     }
@@ -331,7 +311,7 @@ class DatabaseSessionGuard implements StatefulGuard
      */
     protected function findReusableSession(Authenticatable $user, string $ip): ?string
     {
-        $existingSession = $this->db->selectOne(
+        $existingSession = DB::selectOne(
             "SELECT `id` FROM `{$this->table}` WHERE `userId` = ? AND `ip` = ? AND `loggedOutAt` IS NULL",
             [
                 $user->getAuthIdentifier(),
@@ -340,7 +320,7 @@ class DatabaseSessionGuard implements StatefulGuard
         );
 
         if ($existingSession) {
-            $this->db->update(
+            DB::update(
                 "UPDATE `{$this->table}` SET `loggedInAt` = ? WHERE `id` = ?",
                 [
                     (new Carbon())->toDateTimeString(),
@@ -364,7 +344,7 @@ class DatabaseSessionGuard implements StatefulGuard
     {
         $newSessionId = $this->generateSessionId();
 
-        $this->db->insert(
+        DB::insert(
             "INSERT INTO `{$this->table}` (`id`,``userId`, `ip`) VALUES (?, ?, ?)",
             [
                 $newSessionId,

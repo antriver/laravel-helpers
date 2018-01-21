@@ -49,10 +49,7 @@ class LaravelSiteServiceProvider extends ServiceProvider
             function (Container $app, $name, array $config) {
                 return new DatabaseSessionGuard(
                     app('auth')::createUserProvider($config['provider']),
-                    $app->make(Request::class),
-                    $app->make(Store::class),
-                    $app->make(Connection::class),
-                    $app->make(Encrypter::class)
+                    $app->make(Request::class)
                 );
             }
         );
