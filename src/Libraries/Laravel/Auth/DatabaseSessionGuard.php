@@ -112,6 +112,18 @@ class DatabaseSessionGuard implements StatefulGuard
     {
         $token = $this->request->query($this->inputKey);
 
+        if (empty($token)) {
+            $token = $this->request->input($this->inputKey);
+        }
+
+        if (empty($token)) {
+            $token = $this->request->bearerToken();
+        }
+
+        if (empty($token)) {
+            $token = $this->request->getPassword();
+        }
+
         return $token;
     }
 
