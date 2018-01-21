@@ -2,6 +2,7 @@
 
 namespace Tmd\LaravelSite\Providers;
 
+use Auth;
 use Config;
 use DB;
 use Illuminate\Support\ServiceProvider;
@@ -23,6 +24,32 @@ class LaravelSiteServiceProvider extends ServiceProvider
         }
 
         include_once dirname(__DIR__).'/Libraries/helpers.php';
+
+        Auth::extend(
+            'database-session',
+            function (Container $app, $name, array $config) {
+                return new DatabaseSessionGuard(
+                    app('auth')::createUserProvider($config['provider']),
+                    $app->make(Request::class),
+                    $app->make(Store::class),
+                    $app->make(Connection::class),
+                    $app->make(Encrypter::class)
+                );
+            }
+        );
+
+        // RepositoryUserProvides must be registered separately like:
+        /*
+         * Auth::provider(
+            'repository',
+            function (Container $app) {
+                return new RepositoryUserProvider(
+                    $app->make(UserRepository::class),
+                    $app->make(PasswordHasher::class)
+                );
+            }
+        );
+         */
 
         $this->registerQueryLogger();
         DB::connection()->getPdo()->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
