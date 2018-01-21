@@ -12,8 +12,11 @@ use Illuminate\Database\Connection;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use PDO;
+use Tmd\LaravelPasswordUpdater\PasswordHasher;
 use Tmd\LaravelSite\Libraries\Debug\QueryLogger;
 use Tmd\LaravelSite\Libraries\Laravel\Auth\DatabaseSessionGuard;
+use Tmd\LaravelSite\Libraries\Laravel\Auth\RepositoryUserProvider;
+use Tmd\LaravelSite\Repositories\Interfaces\UserRepositoryInterface;
 use Validator;
 
 class LaravelSiteServiceProvider extends ServiceProvider
@@ -31,6 +34,16 @@ class LaravelSiteServiceProvider extends ServiceProvider
 
         include_once dirname(__DIR__).'/Libraries/helpers.php';
 
+        Auth::provider(
+            'repository',
+            function (Container $app) {
+                return new RepositoryUserProvider(
+                    $app->make(UserRepositoryInterface::class),
+                    $app->make(PasswordHasher::class)
+                );
+            }
+        );
+
         Auth::extend(
             'database-session',
             function (Container $app, $name, array $config) {
@@ -43,19 +56,6 @@ class LaravelSiteServiceProvider extends ServiceProvider
                 );
             }
         );
-
-        // RepositoryUserProvides must be registered separately like:
-        /*
-         * Auth::provider(
-            'repository',
-            function (Container $app) {
-                return new RepositoryUserProvider(
-                    $app->make(UserRepository::class),
-                    $app->make(PasswordHasher::class)
-                );
-            }
-        );
-         */
 
         $this->registerQueryLogger();
         DB::connection()->getPdo()->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
