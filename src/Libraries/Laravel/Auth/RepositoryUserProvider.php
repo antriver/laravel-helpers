@@ -5,9 +5,9 @@ namespace Tmd\LaravelSite\Libraries\Laravel\Auth;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider as UserProviderInterface;
 use Illuminate\Support\Facades\Cache;
-use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
 use Tmd\LaravelSite\Models\User;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
+use Tmd\LaravelSite\Repositories\Interfaces\UserRepositoryInterface;
 
 class RepositoryUserProvider implements UserProviderInterface
 {
@@ -17,11 +17,11 @@ class RepositoryUserProvider implements UserProviderInterface
     protected $hasher;
 
     /**
-     * @var RepositoryInterface
+     * @var UserRepositoryInterface
      */
     private $userRepository;
 
-    public function __construct(RepositoryInterface $userRepository, PasswordHasher $hasher)
+    public function __construct(UserRepositoryInterface $userRepository, PasswordHasher $hasher)
     {
         $this->hasher = $hasher;
         $this->userRepository = $userRepository;
