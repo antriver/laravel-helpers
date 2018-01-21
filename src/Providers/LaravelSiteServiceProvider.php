@@ -53,6 +53,27 @@ class LaravelSiteServiceProvider extends ServiceProvider
 
         $this->registerQueryLogger();
         DB::connection()->getPdo()->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+
+        // Use a different guard based on the route.
+        // You can use $request->user()
+        // or inject Authenticable into classes
+        // The only thing not working is injecting Authenticable into controller methods.
+        // @see http://mattallan.org/2016/setting-the-guard-per-route-in-laravel/
+        $this->app['router']->matched(
+            function (\Illuminate\Routing\Events\RouteMatched $event) {
+                $route = $event->route;
+                if (!array_has($route->getAction(), 'guard')) {
+                    return;
+                }
+                $routeGuard = array_get($route->getAction(), 'guard');
+                $this->app['auth']->resolveUsersUsing(
+                    function ($guard = null) use ($routeGuard) {
+                        return $this->app['auth']->guard($routeGuard)->user();
+                    }
+                );
+                $this->app['auth']->setDefaultDriver($routeGuard);
+            }
+        );
     }
 
     /**
