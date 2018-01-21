@@ -271,9 +271,9 @@ class DatabaseSessionGuard implements StatefulGuard
      *
      * @param Authenticatable $user
      *
-     * @return string
+     * @return string Returns the session ID.
      */
-    protected function findOrCreateSessionForUser(Authenticatable $user)
+    public function findOrCreateSessionForUser(Authenticatable $user)
     {
         $ip = (string) $this->request->getClientIp();
 
