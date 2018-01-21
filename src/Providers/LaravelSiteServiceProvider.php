@@ -5,10 +5,7 @@ namespace Tmd\LaravelSite\Providers;
 use Auth;
 use Config;
 use DB;
-use Illuminate\Contracts\Cache\Store;
 use Illuminate\Contracts\Container\Container;
-use Illuminate\Contracts\Encryption\Encrypter;
-use Illuminate\Database\Connection;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use PDO;
@@ -48,7 +45,7 @@ class LaravelSiteServiceProvider extends ServiceProvider
             'database-session',
             function (Container $app, $name, array $config) {
                 return new DatabaseSessionGuard(
-                    app('auth')::createUserProvider($config['provider']),
+                    app('auth')->createUserProvider($config['provider']),
                     $app->make(Request::class)
                 );
             }

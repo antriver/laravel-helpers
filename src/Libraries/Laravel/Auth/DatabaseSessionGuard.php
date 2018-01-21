@@ -2,16 +2,14 @@
 
 namespace Tmd\LaravelSite\Libraries\Laravel\Auth;
 
+use Cache;
 use Carbon\Carbon;
-use Crypt;
+use DB;
 use Exception;
 use Illuminate\Auth\GuardHelpers;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Contracts\Cache\Store;
-use Illuminate\Contracts\Encryption\Encrypter;
-use Illuminate\Database\Connection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -65,16 +63,6 @@ class DatabaseSessionGuard implements StatefulGuard
     }
 
     /**
-     * Return the encrypted session ID, which becomes the token exposed publicly.
-     *
-     * @return string
-     */
-    public function getToken()
-    {
-        return Crypt::encryptString($this->getSessionId());
-    }
-
-    /**
      * Get the currently authenticated user.
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
@@ -88,11 +76,9 @@ class DatabaseSessionGuard implements StatefulGuard
             return $this->user ?: null;
         }
 
-        $token = $this->getTokenForRequest();
+        $this->sessionId = $this->getTokenForRequest();
 
-        if (!empty($token)) {
-            $this->sessionId = Crypt::decryptString($token);
-
+        if (!empty($this->sessionId)) {
             $userId = $this->findUserIdBySessionId($this->sessionId);
             if ($userId) {
                 $user = $this->provider->retrieveById($userId);
@@ -258,7 +244,7 @@ class DatabaseSessionGuard implements StatefulGuard
         $userId = $result ? $result->userId : null;
 
         // Cache false if the session was not found so we remember this session does not exist.
-        Cache::put($cacheKey, $userId ?: false, Cache::Lifetime);
+        Cache::put($cacheKey, $userId ?: false, $this->cacheLifetime);
 
         return $userId;
     }
@@ -298,7 +284,7 @@ class DatabaseSessionGuard implements StatefulGuard
         }
 
         $cacheKey = $this->getSessionIdUserIdCacheKey($sessionId);
-        Cache::put($cacheKey, $user->getAuthIdentifier(), Cache::Lifetime);
+        Cache::put($cacheKey, $user->getAuthIdentifier(), $this->cacheLifetime);
 
         return $sessionId;
     }
@@ -345,7 +331,7 @@ class DatabaseSessionGuard implements StatefulGuard
         $newSessionId = $this->generateSessionId();
 
         DB::insert(
-            "INSERT INTO `{$this->table}` (`id`,``userId`, `ip`) VALUES (?, ?, ?)",
+            "INSERT INTO `{$this->table}` (`id`,`userId`, `ip`) VALUES (?, ?, ?)",
             [
                 $newSessionId,
                 $user->getAuthIdentifier(),
