@@ -347,7 +347,7 @@ class DatabaseSessionGuard implements StatefulGuard
      */
     protected function generateSessionId(): string
     {
-        return Str::random(32);
+        return Str::random(50);
     }
 
     /**
