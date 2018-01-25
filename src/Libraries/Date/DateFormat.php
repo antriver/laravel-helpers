@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Date;
+namespace Tmd\LaravelSite\Libraries\Date;
 
 final class DateFormat
 {

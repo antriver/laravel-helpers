@@ -12,7 +12,7 @@ use Illuminate\Database\Events\QueryExecuted;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
-use Tmd\LaravelSite\Date\DateFormat;
+use Tmd\LaravelSite\Libraries\Date\DateFormat;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheHit;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheMissed;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalKeyWritten;
