@@ -62,6 +62,10 @@ class QueryLogger
         Event::listen(
             'Illuminate\Cache\Events\CacheHit',
             function (CacheHit $event) use ($queryLogger) {
+                if ($event->key === 'illuminate:queue:restart') {
+                    return false;
+                }
+
                 $queryLogger->info("cache.hit\t\t\t{$event->key}");
             }
         );
