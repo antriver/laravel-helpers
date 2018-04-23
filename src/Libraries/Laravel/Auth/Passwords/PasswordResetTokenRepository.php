@@ -1,6 +1,6 @@
 <?php
 
-namespace Amirite\Libraries\Laravel\Auth\Passwords;
+namespace Tmd\LaravelSite\Libraries\Laravel\Auth;
 
 use Carbon\Carbon;
 use DB;
