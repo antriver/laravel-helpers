@@ -8,11 +8,12 @@ use Illuminate\Cache\Events\CacheHit;
 use Illuminate\Cache\Events\CacheMissed;
 use Illuminate\Cache\Events\KeyForgotten;
 use Illuminate\Cache\Events\KeyWritten;
+use Illuminate\Console\Events\CommandStarting;
 use Illuminate\Database\Events\QueryExecuted;
 use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\BufferHandler;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
-use Tmd\LaravelSite\Libraries\Date\DateFormat;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheHit;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheMissed;
 use Tmd\LaravelSite\Libraries\Debug\Events\LocalKeyWritten;
@@ -24,18 +25,25 @@ class QueryLogger
         global $queryLogger;
         $queryLogger = new Logger('Queries');
 
-        $fileHandler = new RotatingFileHandler(
+        $rotatingFileHandler = new RotatingFileHandler(
             storage_path().'/logs/query.log',
             5,
             \Monolog\Logger::DEBUG,
             true,
-            0777
+            0777,
+            true
+        );
+
+        // We write to a BufferHandler first as multiple requests at the same time will cause the logs
+        // to be mixed together.
+        $bufferHandler = new BufferHandler(
+            $rotatingFileHandler
         );
 
         $lineFormatter = new LineFormatter("%message% %context% %extra%\n", null, true, true);
-        $fileHandler->setFormatter($lineFormatter);
+        $rotatingFileHandler->setFormatter($lineFormatter);
 
-        $queryLogger->pushHandler($fileHandler);
+        $queryLogger->pushHandler($bufferHandler);
 
         //$queryLogger->pushHandler(new StreamHandler("php://output"));
 
@@ -49,7 +57,18 @@ class QueryLogger
         }
 
         Event::listen(
-            'Illuminate\Cache\Events\CacheMissed',
+            CommandStarting::class,
+            function (CommandStarting $event) use ($queryLogger) {
+                $queryLogger->info(
+                    "\n\n=======\n{$event->command}"
+                    ."\n".(new Carbon())->toDateTimeString()
+                    ."\n========="
+                );
+            }
+        );
+
+        Event::listen(
+            CacheMissed::class,
             function (CacheMissed $event) use ($queryLogger) {
                 if ($event->key === 'illuminate:queue:restart') {
                     return false;
@@ -60,7 +79,7 @@ class QueryLogger
         );
 
         Event::listen(
-            'Illuminate\Cache\Events\CacheHit',
+            CacheHit::class,
             function (CacheHit $event) use ($queryLogger) {
                 if ($event->key === 'illuminate:queue:restart') {
                     return false;
@@ -71,21 +90,21 @@ class QueryLogger
         );
 
         Event::listen(
-            'Illuminate\Cache\Events\KeyWritten',
+            KeyWritten::class,
             function (KeyWritten $event) use ($queryLogger) {
                 $queryLogger->info("cache.write\t\t\t{$event->key}");
             }
         );
 
         Event::listen(
-            'Illuminate\Cache\Events\KeyForgotten',
+            KeyForgotten::class,
             function (KeyForgotten $event) use ($queryLogger) {
                 $queryLogger->info("cache.forget\t\t\t{$event->key}");
             }
         );
 
         Event::listen(
-            'Illuminate\Database\Events\QueryExecuted',
+            QueryExecuted::class,
             function (QueryExecuted $event) use ($queryLogger) {
 
                 $query = $event->sql;
@@ -112,21 +131,21 @@ class QueryLogger
 
 
         Event::listen(
-            'Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheMissed',
+            LocalCacheMissed::class,
             function (LocalCacheMissed $event) use ($queryLogger) {
                 $queryLogger->info("array-cache.missed\t{$event->key}");
             }
         );
 
         Event::listen(
-            'Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheHit',
+            LocalCacheHit::class,
             function (LocalCacheHit $event) use ($queryLogger) {
                 $queryLogger->info("array-cache.hit\t\t{$event->key}");
             }
         );
 
         Event::listen(
-            'Tmd\LaravelSite\Libraries\Debug\Events\LocalKeyWritten',
+            LocalKeyWritten::class,
             function (LocalKeyWritten $event) use ($queryLogger) {
                 $queryLogger->info("array-cache.write\t{$event->key}");
             }
