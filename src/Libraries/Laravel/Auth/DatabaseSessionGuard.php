@@ -238,7 +238,7 @@ class DatabaseSessionGuard implements StatefulGuard
      *
      * @return int|null
      */
-    protected function findUserIdBySessionId(string $sessionId): ?int
+    public function findUserIdBySessionId(string $sessionId): ?int
     {
         $cacheKey = $this->getSessionIdUserIdCacheKey($sessionId);
 
