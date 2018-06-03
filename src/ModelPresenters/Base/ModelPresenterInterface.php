@@ -10,9 +10,9 @@ interface ModelPresenterInterface
     /**
      * @param Model $model
      *
-     * @return array
+     * @return array|null
      */
-    public function present(Model $model): array;
+    public function present(Model $model): ?array;
 
     /**
      * @param Model[]|\Iterator|Collection $models

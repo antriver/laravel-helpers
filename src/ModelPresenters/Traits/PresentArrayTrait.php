@@ -21,7 +21,10 @@ trait PresentArrayTrait
         /** @var ModelPresenterInterface $this */
         $array = [];
         foreach ($models as $model) {
-            $array[] = $this->present($model, ...$args);
+            $presented = $this->present($model, ...$args);
+            if (is_array($presented)) {
+                $array[] = $presented;
+            }
         }
 
         return $array;
