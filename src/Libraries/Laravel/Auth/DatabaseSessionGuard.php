@@ -264,7 +264,7 @@ class DatabaseSessionGuard implements StatefulGuard
     /**
      * @param string $sessionId
      */
-    protected function logoutSession(string $sessionId)
+    public function logoutSession(string $sessionId)
     {
         DB::update(
             "UPDATE `{$this->table}` SET `loggedOutAt` = ? WHERE `id` = ?",
