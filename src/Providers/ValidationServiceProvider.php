@@ -9,8 +9,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
     public function register()
     {
         parent::register();
-
-        Validator::extend('ctrlv', 'Tmd\LaravelSite\Http\Validators\CtrlVValidator@validate');
+        
         Validator::extend('email_valid', 'Tmd\LaravelSite\Http\Validators\EmailMXValidator@validate');
         Validator::extend('hex_color', 'Tmd\LaravelSite\Http\Validators\HexColorValidator@validate');
         Validator::extend('recaptcha', 'Tmd\LaravelSite\Http\Validators\RecaptchaValidator@validate');
