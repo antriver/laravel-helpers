@@ -6,12 +6,10 @@ use Auth;
 use Config;
 use DB;
 use Illuminate\Contracts\Container\Container;
-use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use PDO;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 use Tmd\LaravelSite\Libraries\Debug\QueryLogger;
-use Tmd\LaravelSite\Libraries\Laravel\Auth\DatabaseSessionGuard;
 use Tmd\LaravelSite\Libraries\Laravel\Auth\RepositoryUserProvider;
 use Tmd\LaravelSite\Repositories\Interfaces\UserRepositoryInterface;
 use Validator;
@@ -37,16 +35,6 @@ class LaravelSiteServiceProvider extends ServiceProvider
                 return new RepositoryUserProvider(
                     $app->make(UserRepositoryInterface::class),
                     $app->make(PasswordHasher::class)
-                );
-            }
-        );
-
-        Auth::extend(
-            'database-session',
-            function (Container $app, $name, array $config) {
-                return new DatabaseSessionGuard(
-                    app('auth')->createUserProvider($config['provider']),
-                    $app->make(Request::class)
                 );
             }
         );
