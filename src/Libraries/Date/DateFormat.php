@@ -2,7 +2,7 @@
 
 namespace Tmd\LaravelSite\Libraries\Date;
 
-final class DateFormat
+class DateFormat
 {
     /**
      * Nov 10th 2017
@@ -13,6 +13,11 @@ final class DateFormat
      * Nov 10th 2017 10:51 AM
      */
     const DATE_TIME = 'M jS Y h:i A';
+
+    /**
+     * Nov 10th 2017 10:51 AM
+     */
+    const DATE_TIME_WITH_TZ = 'M jS Y h:i A (e)';
 
     /**
      * Nov 10th 2017 10:51:55 AM
