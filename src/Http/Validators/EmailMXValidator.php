@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Http\Validators;
+namespace Tmd\LaravelHelpers\Http\Validators;
 
 class EmailMXValidator
 {

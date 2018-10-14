@@ -1,12 +1,12 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Images;
+namespace Tmd\LaravelHelpers\Libraries\Images;
 
 use Config;
 use Exception;
 use Intervention\Image\Image as InterventionImage;
 use Intervention\Image\ImageManager as InterventionImageManager;
-use Tmd\LaravelSite\Models\Image;
+use Tmd\LaravelHelpers\Models\Image;
 use Storage;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;

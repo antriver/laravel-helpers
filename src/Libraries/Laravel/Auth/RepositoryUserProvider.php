@@ -1,13 +1,13 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Laravel\Auth;
+namespace Tmd\LaravelHelpers\Libraries\Laravel\Auth;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider as UserProviderInterface;
 use Illuminate\Support\Facades\Cache;
-use Tmd\LaravelSite\Models\User;
+use Tmd\LaravelHelpers\Models\User;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
-use Tmd\LaravelSite\Repositories\Interfaces\UserRepositoryInterface;
+use Tmd\LaravelHelpers\Repositories\Interfaces\UserRepositoryInterface;
 
 class RepositoryUserProvider implements UserProviderInterface
 {

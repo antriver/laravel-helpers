@@ -1,13 +1,13 @@
 <?php
 
-namespace Tmd\LaravelSite\Models;
+namespace Tmd\LaravelHelpers\Models;
 
-use Tmd\LaravelSite\Models\Base\AbstractModel;
-use Tmd\LaravelSite\Models\Interfaces\BelongsToUserInterface;
-use Tmd\LaravelSite\Models\Traits\BelongsToUserTrait;
+use Tmd\LaravelHelpers\Models\Base\AbstractModel;
+use Tmd\LaravelHelpers\Models\Interfaces\BelongsToUserInterface;
+use Tmd\LaravelHelpers\Models\Traits\BelongsToUserTrait;
 
 /**
- * Tmd\LaravelSite\Models\EmailVerification
+ * Tmd\LaravelHelpers\Models\EmailVerification
  *
  * @property int $id
  * @property int $userId

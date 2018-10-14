@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Events\Base;
+namespace Tmd\LaravelHelpers\Events\Base;
 
 use Illuminate\Queue\SerializesModels;
 use ReflectionClass;

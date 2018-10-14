@@ -1,11 +1,11 @@
 <?php
 
-namespace Tmd\LaravelSite\Models\Base;
+namespace Tmd\LaravelHelpers\Models\Base;
 
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Str;
 use Schema;
-use Tmd\LaravelSite\Models\Traits\OutputsDatesTrait;
+use Tmd\LaravelHelpers\Models\Traits\OutputsDatesTrait;
 
 /**
  * @mixin \Eloquent

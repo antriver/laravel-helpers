@@ -1,8 +1,8 @@
 <?php
 
-namespace Tmd\LaravelSite\Models\Traits;
+namespace Tmd\LaravelHelpers\Models\Traits;
 
-use Tmd\LaravelSite\Models\Base\AbstractModel;
+use Tmd\LaravelHelpers\Models\Base\AbstractModel;
 
 trait HasTextTrait
 {

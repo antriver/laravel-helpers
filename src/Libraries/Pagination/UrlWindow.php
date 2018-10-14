@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Pagination;
+namespace Tmd\LaravelHelpers\Libraries\Pagination;
 
 /**
  * Class UrlWindow
@@ -8,7 +8,7 @@ namespace Tmd\LaravelSite\Libraries\Pagination;
  * Limit the total number of pages (or dots) shown to a max of 9.
  * 1 first page + ... + 5 middle + ... + 1 last page
  *
- * @package Tmd\LaravelSite\Libraries\Pagination
+ * @package Tmd\LaravelHelpers\Libraries\Pagination
  */
 class UrlWindow extends \Illuminate\Pagination\UrlWindow
 {

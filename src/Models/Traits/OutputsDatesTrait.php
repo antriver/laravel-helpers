@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Models\Traits;
+namespace Tmd\LaravelHelpers\Models\Traits;
 
 /**
  * Provides a method to convert the dates of a model to ISO 8601

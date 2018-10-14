@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Http\Middleware;
+namespace Tmd\LaravelHelpers\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

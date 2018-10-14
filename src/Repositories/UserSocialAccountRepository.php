@@ -1,9 +1,9 @@
 <?php
 
-namespace Tmd\LaravelSite\Repositories;
+namespace Tmd\LaravelHelpers\Repositories;
 
-use Tmd\LaravelSite\Models\User;
-use Tmd\LaravelSite\Models\UserSocialAccount;
+use Tmd\LaravelHelpers\Models\User;
+use Tmd\LaravelHelpers\Models\UserSocialAccount;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
 
 class UserSocialAccountRepository extends AbstractRepository

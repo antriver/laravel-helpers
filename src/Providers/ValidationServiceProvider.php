@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Providers;
+namespace Tmd\LaravelHelpers\Providers;
 
 use Validator;
 
@@ -10,11 +10,11 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
     {
         parent::register();
 
-        Validator::extend('email_valid', 'Tmd\LaravelSite\Http\Validators\EmailMXValidator@validate');
-        Validator::extend('hex_color', 'Tmd\LaravelSite\Http\Validators\HexColorValidator@validate');
-        Validator::extend('recaptcha', 'Tmd\LaravelSite\Http\Validators\RecaptchaValidator@validate');
-        Validator::extend('user_image', 'Tmd\LaravelSite\Http\Validators\UserImageValidator@validate');
-        Validator::extend('i_in', 'Tmd\LaravelSite\Http\Validators\InCaseInsensitiveValidator@validateIn');
-        Validator::extend('i_not_in', 'Tmd\LaravelSite\Http\Validators\InCaseInsensitiveValidator@validateNotIn');
+        Validator::extend('email_valid', 'Tmd\LaravelHelpers\Http\Validators\EmailMXValidator@validate');
+        Validator::extend('hex_color', 'Tmd\LaravelHelpers\Http\Validators\HexColorValidator@validate');
+        Validator::extend('recaptcha', 'Tmd\LaravelHelpers\Http\Validators\RecaptchaValidator@validate');
+        Validator::extend('user_image', 'Tmd\LaravelHelpers\Http\Validators\UserImageValidator@validate');
+        Validator::extend('i_in', 'Tmd\LaravelHelpers\Http\Validators\InCaseInsensitiveValidator@validateIn');
+        Validator::extend('i_not_in', 'Tmd\LaravelHelpers\Http\Validators\InCaseInsensitiveValidator@validateNotIn');
     }
 }

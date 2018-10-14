@@ -1,11 +1,11 @@
 <?php
 
-namespace Tmd\LaravelSite\Policies\Traits;
+namespace Tmd\LaravelHelpers\Policies\Traits;
 
 use Stickable\Models\Interfaces\FeaturableInterface;
-use Tmd\LaravelSite\Models\Base\AbstractModel;
-use Tmd\LaravelSite\Models\User;
-use Tmd\LaravelSite\Policies\Base\AbstractPolicy;
+use Tmd\LaravelHelpers\Models\Base\AbstractModel;
+use Tmd\LaravelHelpers\Models\User;
+use Tmd\LaravelHelpers\Policies\Base\AbstractPolicy;
 
 trait DefaultModelPolicyTrait
 {

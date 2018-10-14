@@ -1,13 +1,13 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Pagination;
+namespace Tmd\LaravelHelpers\Libraries\Pagination;
 
 /**
  * Class LastHiddenUrlWindow
  *
  * Always shows 8 links
  *
- * @package Tmd\LaravelSite\Libraries\Pagination
+ * @package Tmd\LaravelHelpers\Libraries\Pagination
  */
 class LastHiddenUrlWindow extends UrlWindow
 {

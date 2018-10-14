@@ -1,10 +1,10 @@
 <?php
 
-namespace Tmd\LaravelSite\Repositories;
+namespace Tmd\LaravelHelpers\Repositories;
 
 use Carbon\Carbon;
 use DB;
-use Tmd\LaravelSite\Models\User;
+use Tmd\LaravelHelpers\Models\User;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
 
 class UserRepository extends AbstractCachedRepository

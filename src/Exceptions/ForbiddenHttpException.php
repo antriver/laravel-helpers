@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Exceptions;
+namespace Tmd\LaravelHelpers\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 

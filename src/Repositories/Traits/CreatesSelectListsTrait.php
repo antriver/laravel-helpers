@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Repositories\Traits;
+namespace Tmd\LaravelHelpers\Repositories\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 

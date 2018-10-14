@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Debug\Events;
+namespace Tmd\LaravelHelpers\Libraries\Debug\Events;
 
 class LocalCacheHit
 {

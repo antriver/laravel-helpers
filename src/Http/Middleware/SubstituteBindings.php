@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Http\Middleware;
+namespace Tmd\LaravelHelpers\Http\Middleware;
 
 use Closure;
 use Illuminate\Routing\Router;

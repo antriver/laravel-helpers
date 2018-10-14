@@ -1,13 +1,13 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Laravel\Auth\Passwords;
+namespace Tmd\LaravelHelpers\Libraries\Laravel\Auth\Passwords;
 
 use Carbon\Carbon;
 use DB;
 use Illuminate\Auth\Passwords\TokenRepositoryInterface;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Tmd\LaravelSite\Libraries\Traits\GeneratesTokensTrait;
+use Tmd\LaravelHelpers\Libraries\Traits\GeneratesTokensTrait;
 
 class PasswordResetTokenRepository implements TokenRepositoryInterface
 {

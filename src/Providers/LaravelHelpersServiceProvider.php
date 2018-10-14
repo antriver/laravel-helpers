@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Providers;
+namespace Tmd\LaravelHelpers\Providers;
 
 use Auth;
 use Config;
@@ -9,12 +9,12 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use PDO;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
-use Tmd\LaravelSite\Libraries\Debug\QueryLogger;
-use Tmd\LaravelSite\Libraries\Laravel\Auth\RepositoryUserProvider;
-use Tmd\LaravelSite\Repositories\Interfaces\UserRepositoryInterface;
+use Tmd\LaravelHelpers\Libraries\Debug\QueryLogger;
+use Tmd\LaravelHelpers\Libraries\Laravel\Auth\RepositoryUserProvider;
+use Tmd\LaravelHelpers\Repositories\Interfaces\UserRepositoryInterface;
 use Validator;
 
-class LaravelSiteServiceProvider extends ServiceProvider
+class LaravelHelpersServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.

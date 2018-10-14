@@ -1,10 +1,10 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Users;
+namespace Tmd\LaravelHelpers\Libraries\Users;
 
 use Laravel\Socialite\AbstractUser;
-use Tmd\LaravelSite\Http\Traits\ValidatesUserCredentialsTrait;
-use Tmd\LaravelSite\Repositories\UserRepository;
+use Tmd\LaravelHelpers\Http\Traits\ValidatesUserCredentialsTrait;
+use Tmd\LaravelHelpers\Repositories\UserRepository;
 
 class UsernameFactory
 {

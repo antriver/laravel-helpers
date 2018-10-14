@@ -1,6 +1,6 @@
 <?php
 
-use Tmd\LaravelSite\Libraries\Date\DateFormat;
+use Tmd\LaravelHelpers\Libraries\Date\DateFormat;
 
 /**
  * Include this in AppServiceProvider::boot()

@@ -1,10 +1,10 @@
 <?php
 
-namespace Tmd\LaravelSite\Repositories;
+namespace Tmd\LaravelHelpers\Repositories;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
-use Tmd\LaravelSite\Models\Image;
+use Tmd\LaravelHelpers\Models\Image;
 use Tmd\LaravelRepositories\Base\AbstractCachedRepository;
 
 class ImageRepository extends AbstractCachedRepository

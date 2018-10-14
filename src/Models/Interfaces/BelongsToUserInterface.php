@@ -1,8 +1,8 @@
 <?php
 
-namespace Tmd\LaravelSite\Models\Interfaces;
+namespace Tmd\LaravelHelpers\Models\Interfaces;
 
-use Tmd\LaravelSite\Models\User;
+use Tmd\LaravelHelpers\Models\User;
 
 interface BelongsToUserInterface
 {

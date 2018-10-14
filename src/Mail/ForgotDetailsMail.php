@@ -1,9 +1,9 @@
 <?php
 
-namespace Tmd\LaravelSite\Mail;
+namespace Tmd\LaravelHelpers\Mail;
 
-use Tmd\LaravelSite\Mail\Base\ExtendedMailable;
-use Tmd\LaravelSite\Models\User;
+use Tmd\LaravelHelpers\Mail\Base\ExtendedMailable;
+use Tmd\LaravelHelpers\Models\User;
 
 class ForgotDetailsMail extends ExtendedMailable
 {

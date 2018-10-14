@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Repositories\Traits;
+namespace Tmd\LaravelHelpers\Repositories\Traits;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Laravel\Scout\Builder as ScoutBuilder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
-use Tmd\LaravelSite\Libraries\Pagination\LastHiddenLengthAwarePaginator;
-use Tmd\LaravelSite\Libraries\Pagination\LengthAwarePaginator;
+use Tmd\LaravelHelpers\Libraries\Pagination\LastHiddenLengthAwarePaginator;
+use Tmd\LaravelHelpers\Libraries\Pagination\LengthAwarePaginator;
 
 trait ReturnsPaginatorsTrait
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Tmd\LaravelSite\Mail\Base;
+namespace Tmd\LaravelHelpers\Mail\Base;
 
 use Illuminate\Mail\Mailable;
-use Tmd\LaravelSite\Models\Achievement;
-use Tmd\LaravelSite\Models\User;
+use Tmd\LaravelHelpers\Models\Achievement;
+use Tmd\LaravelHelpers\Models\User;
 
 /**
  * Extends the base Mailable class with some useful functions for adding content.

@@ -1,16 +1,16 @@
 <?php
 
-namespace Tmd\LaravelSite\Models;
+namespace Tmd\LaravelHelpers\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Tmd\LaravelSite\Models\Base\AbstractModel;
-use Tmd\LaravelSite\Models\Interfaces\BelongsToUserInterface;
-use Tmd\LaravelSite\Models\Traits\BelongsToUserTrait;
-use Tmd\LaravelSite\Repositories\UserRepository;
+use Tmd\LaravelHelpers\Models\Base\AbstractModel;
+use Tmd\LaravelHelpers\Models\Interfaces\BelongsToUserInterface;
+use Tmd\LaravelHelpers\Models\Traits\BelongsToUserTrait;
+use Tmd\LaravelHelpers\Repositories\UserRepository;
 
 /**
- * Tmd\LaravelSite\Models\UserBan
+ * Tmd\LaravelHelpers\Models\UserBan
  *
  * @property int $id
  * @property int|null $userId
@@ -21,22 +21,22 @@ use Tmd\LaravelSite\Repositories\UserRepository;
  * @property \Carbon\Carbon|null $updatedAt
  * @property \Carbon\Carbon|null $deletedAt
  * @property \Carbon\Carbon|null $expiresAt
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan current()
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan expired()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan current()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan expired()
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\UserBan onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelHelpers\Models\UserBan onlyTrashed()
  * @method static bool|null restore()
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereByUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereExpiresAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereIp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereReason($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelSite\Models\UserBan whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\UserBan withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelSite\Models\UserBan withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereByUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereExpiresAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereReason($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Tmd\LaravelHelpers\Models\UserBan whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelHelpers\Models\UserBan withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Tmd\LaravelHelpers\Models\UserBan withoutTrashed()
  * @mixin \Eloquent
  */
 class UserBan extends AbstractModel implements BelongsToUserInterface

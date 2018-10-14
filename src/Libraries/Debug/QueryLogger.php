@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Debug;
+namespace Tmd\LaravelHelpers\Libraries\Debug;
 
 use Carbon\Carbon;
 use Event;
@@ -14,9 +14,9 @@ use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\BufferHandler;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
-use Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheHit;
-use Tmd\LaravelSite\Libraries\Debug\Events\LocalCacheMissed;
-use Tmd\LaravelSite\Libraries\Debug\Events\LocalKeyWritten;
+use Tmd\LaravelHelpers\Libraries\Debug\Events\LocalCacheHit;
+use Tmd\LaravelHelpers\Libraries\Debug\Events\LocalCacheMissed;
+use Tmd\LaravelHelpers\Libraries\Debug\Events\LocalKeyWritten;
 
 class QueryLogger
 {

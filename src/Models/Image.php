@@ -1,11 +1,11 @@
 <?php
 
-namespace Tmd\LaravelSite\Models;
+namespace Tmd\LaravelHelpers\Models;
 
 use Config;
-use Tmd\LaravelSite\Models\Base\AbstractModel;
-use Tmd\LaravelSite\Models\Interfaces\BelongsToUserInterface;
-use Tmd\LaravelSite\Models\Traits\BelongsToUserTrait;
+use Tmd\LaravelHelpers\Models\Base\AbstractModel;
+use Tmd\LaravelHelpers\Models\Interfaces\BelongsToUserInterface;
+use Tmd\LaravelHelpers\Models\Traits\BelongsToUserTrait;
 
 class Image extends AbstractModel implements BelongsToUserInterface
 {

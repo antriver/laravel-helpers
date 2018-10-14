@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries;
+namespace Tmd\LaravelHelpers\Libraries;
 
 class LanguageHelpers
 {

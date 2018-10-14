@@ -1,9 +1,9 @@
 <?php
 
-namespace Tmd\LaravelSite\Models\Traits;
+namespace Tmd\LaravelHelpers\Models\Traits;
 
-use Tmd\LaravelSite\Models\User;
-use Tmd\LaravelSite\Repositories\UserRepository;
+use Tmd\LaravelHelpers\Models\User;
+use Tmd\LaravelHelpers\Repositories\UserRepository;
 
 trait BelongsToUserTrait
 {

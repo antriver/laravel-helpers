@@ -1,13 +1,13 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Users;
+namespace Tmd\LaravelHelpers\Libraries\Users;
 
-use Tmd\LaravelSite\Libraries\Traits\GeneratesTokensTrait;
-use Tmd\LaravelSite\Mail\EmailVerificationMail;
-use Tmd\LaravelSite\Models\EmailVerification;
-use Tmd\LaravelSite\Models\User;
-use Tmd\LaravelSite\Models\UserEmailChange;
-use Tmd\LaravelSite\Repositories\UserRepository;
+use Tmd\LaravelHelpers\Libraries\Traits\GeneratesTokensTrait;
+use Tmd\LaravelHelpers\Mail\EmailVerificationMail;
+use Tmd\LaravelHelpers\Models\EmailVerification;
+use Tmd\LaravelHelpers\Models\User;
+use Tmd\LaravelHelpers\Models\UserEmailChange;
+use Tmd\LaravelHelpers\Repositories\UserRepository;
 use Carbon\Carbon;
 use Mail;
 use Tmd\LaravelRepositories\Base\AbstractRepository;
@@ -21,7 +21,7 @@ use Tmd\LaravelRepositories\Interfaces\RepositoryInterface;
  * @method EmailVerification find($key)
  * @method EmailVerification findOrFail($key)
  *
- * @package Tmd\LaravelSite\Libraries\Users
+ * @package Tmd\LaravelHelpers\Libraries\Users
  */
 class EmailVerificationManager extends AbstractRepository implements RepositoryInterface
 {

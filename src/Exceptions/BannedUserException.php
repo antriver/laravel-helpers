@@ -1,9 +1,9 @@
 <?php
 
-namespace Tmd\LaravelSite\Exceptions;
+namespace Tmd\LaravelHelpers\Exceptions;
 
 use Exception;
-use Tmd\LaravelSite\Models\UserBan;
+use Tmd\LaravelHelpers\Models\UserBan;
 
 class BannedUserException extends Exception
 {

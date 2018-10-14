@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Traits;
+namespace Tmd\LaravelHelpers\Libraries\Traits;
 
 trait ConvertsCaseTrait
 {

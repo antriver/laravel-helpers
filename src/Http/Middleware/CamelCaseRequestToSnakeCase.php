@@ -1,17 +1,17 @@
 <?php
 
-namespace Tmd\LaravelSite\Http\Middleware;
+namespace Tmd\LaravelHelpers\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\JsonResponse;
-use Tmd\LaravelSite\Libraries\Traits\ConvertsCaseTrait;
+use Tmd\LaravelHelpers\Libraries\Traits\ConvertsCaseTrait;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Middleware to convert incoming request parameters form camelCase keys to snake_case keys.
  * And convert keys in the response from snake_case to camelCase.
  *
- * @package Tmd\LaravelSite\Http\Middleware
+ * @package Tmd\LaravelHelpers\Http\Middleware
  */
 class CamelCaseRequestToSnakeCase
 {

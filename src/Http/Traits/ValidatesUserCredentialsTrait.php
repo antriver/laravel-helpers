@@ -1,8 +1,8 @@
 <?php
 
-namespace Tmd\LaravelSite\Http\Traits;
+namespace Tmd\LaravelHelpers\Http\Traits;
 
-use Tmd\LaravelSite\Models\User;
+use Tmd\LaravelHelpers\Models\User;
 
 trait ValidatesUserCredentialsTrait
 {

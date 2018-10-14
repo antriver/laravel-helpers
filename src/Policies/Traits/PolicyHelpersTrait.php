@@ -1,10 +1,10 @@
 <?php
 
-namespace Tmd\LaravelSite\Policies\Traits;
+namespace Tmd\LaravelHelpers\Policies\Traits;
 
-use Tmd\LaravelSite\Models\Base\AbstractModel;
-use Tmd\LaravelSite\Models\Interfaces\BelongsToUserInterface;
-use Tmd\LaravelSite\Models\User;
+use Tmd\LaravelHelpers\Models\Base\AbstractModel;
+use Tmd\LaravelHelpers\Models\Interfaces\BelongsToUserInterface;
+use Tmd\LaravelHelpers\Models\User;
 
 trait PolicyHelpersTrait
 {

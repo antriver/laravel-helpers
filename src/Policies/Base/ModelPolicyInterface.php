@@ -1,9 +1,9 @@
 <?php
 
-namespace Tmd\LaravelSite\Policies\Base;
+namespace Tmd\LaravelHelpers\Policies\Base;
 
-use Tmd\LaravelSite\Models\Base\AbstractModel;
-use Tmd\LaravelSite\Models\User;
+use Tmd\LaravelHelpers\Models\Base\AbstractModel;
+use Tmd\LaravelHelpers\Models\User;
 
 interface ModelPolicyInterface
 {

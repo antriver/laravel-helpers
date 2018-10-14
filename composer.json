@@ -1,5 +1,5 @@
 {
-    "name": "tmd/laravel-site",
+    "name": "tmd/laravel-helpers",
     "description": "Helper classes for developing a Laravel API for a site or app.",
     "type": "library",
     "authors": [
@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Tmd\\LaravelSite\\": "src/"
+            "Tmd\\LaravelHelpers\\": "src/"
         }
     },
     "require": {

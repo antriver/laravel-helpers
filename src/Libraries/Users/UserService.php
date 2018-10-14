@@ -1,14 +1,14 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Users;
+namespace Tmd\LaravelHelpers\Libraries\Users;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Laravel\Socialite\AbstractUser;
-use Tmd\LaravelSite\Models\User;
-use Tmd\LaravelSite\Models\UserSocialAccount;
-use Tmd\LaravelSite\Repositories\UserRepository;
-use Tmd\LaravelSite\Repositories\UserSocialAccountRepository;
+use Tmd\LaravelHelpers\Models\User;
+use Tmd\LaravelHelpers\Models\UserSocialAccount;
+use Tmd\LaravelHelpers\Repositories\UserRepository;
+use Tmd\LaravelHelpers\Repositories\UserSocialAccountRepository;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Tmd\LaravelPasswordUpdater\PasswordHasher;
 

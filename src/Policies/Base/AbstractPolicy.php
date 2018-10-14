@@ -1,11 +1,11 @@
 <?php
 
-namespace Tmd\LaravelSite\Policies\Base;
+namespace Tmd\LaravelHelpers\Policies\Base;
 
 /**
  * Provides some useful methods for checking authorization.
  *
- * @package Tmd\LaravelSite\Policies\Base
+ * @package Tmd\LaravelHelpers\Policies\Base
  */
 abstract class AbstractPolicy
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Pagination;
+namespace Tmd\LaravelHelpers\Libraries\Pagination;
 
 use Illuminate\Support\HtmlString;
 

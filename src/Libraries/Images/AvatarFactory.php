@@ -1,10 +1,10 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Images;
+namespace Tmd\LaravelHelpers\Libraries\Images;
 
-use Tmd\LaravelSite\Models\Image;
-use Tmd\LaravelSite\Models\User;
-use Tmd\LaravelSite\Repositories\ImageRepository;
+use Tmd\LaravelHelpers\Models\Image;
+use Tmd\LaravelHelpers\Models\User;
+use Tmd\LaravelHelpers\Repositories\ImageRepository;
 
 class AvatarFactory
 {

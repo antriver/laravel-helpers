@@ -1,9 +1,9 @@
 <?php
 
-namespace Tmd\LaravelSite\Http\Validators;
+namespace Tmd\LaravelHelpers\Http\Validators;
 
-use Tmd\LaravelSite\Models\Image;
-use Tmd\LaravelSite\Repositories\ImageRepository;
+use Tmd\LaravelHelpers\Models\Image;
+use Tmd\LaravelHelpers\Repositories\ImageRepository;
 
 class UserImageValidator
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Libraries\Debug;
+namespace Tmd\LaravelHelpers\Libraries\Debug;
 
 class DebugTimer
 {

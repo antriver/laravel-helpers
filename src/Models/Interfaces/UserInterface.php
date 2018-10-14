@@ -1,6 +1,6 @@
 <?php
 
-namespace Tmd\LaravelSite\Models\Interfaces;
+namespace Tmd\LaravelHelpers\Models\Interfaces;
 
 interface UserInterface
 {

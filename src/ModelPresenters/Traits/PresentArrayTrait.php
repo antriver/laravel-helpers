@@ -1,12 +1,12 @@
 <?php
 
-namespace Tmd\LaravelSite\ModelPresenters\Traits;
+namespace Tmd\LaravelHelpers\ModelPresenters\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
-use Tmd\LaravelSite\Libraries\Pagination\LengthAwarePaginator;
-use Tmd\LaravelSite\ModelPresenters\Base\ModelPresenterInterface;
+use Tmd\LaravelHelpers\Libraries\Pagination\LengthAwarePaginator;
+use Tmd\LaravelHelpers\ModelPresenters\Base\ModelPresenterInterface;
 
 trait PresentArrayTrait
 {
