@@ -77,8 +77,28 @@ class LanguageHelpers
      */
     public static function wordTruncate($string, $limit, $cutter = '...', $returnArray = false)
     {
+        $result = self::wordTruncateDetail($string, $limit, $cutter);
+
+        // Backward compatibility:
+        if ($returnArray) {
+            if ($result['breakpoint'] === null) {
+                return $result['string'];
+            } else {
+                return $result;
+            }
+        } else {
+            return $result['string'];
+        }
+    }
+
+    public static function wordTruncateDetail($string, $limit, $cutter = '...')
+    {
         if (strlen($string) <= $limit) {
-            return $string;
+            return [
+                'string' => $string,
+                'breakpoint' => null,
+                'remainder' => null
+            ];
         }
 
         $limit -= strlen($cutter);
@@ -90,22 +110,25 @@ class LanguageHelpers
         $breakpoint = strrpos($cutString, ' ');
 
         if ($breakpoint === false) {
-            return $cutString.$cutter;
+            $truncated = trim($cutString, ' ,.').$cutter;
+
+            $remainder = trim(substr($string, strlen($cutString)));
+            return [
+                'string' => $truncated,
+                'breakpoint' => $limit,
+                'remainder' => $remainder
+            ];
         } else {
             $truncated = substr($cutString, 0, $breakpoint);
-            $truncated = trim($truncated, ' ,.');
-            $truncated .= $cutter;
-            if ($returnArray) {
-                $remainder = $cutter.trim(substr($string, $breakpoint));
+            $truncated = trim($truncated, ' ,.').$cutter;
 
-                return [
-                    'breakpoint' => $breakpoint,
-                    'string' => $truncated,
-                    'remainder' => $remainder,
-                ];
-            } else {
-                return $truncated;
-            }
+            $remainder = trim(substr($string, $breakpoint));
+
+            return [
+                'string' => $truncated,
+                'breakpoint' => $breakpoint,
+                'remainder' => $remainder,
+            ];
         }
     }
 
