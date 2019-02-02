@@ -83,25 +83,28 @@ class LanguageHelpers
 
         $limit -= strlen($cutter);
 
-        $string = substr($string, 0, $limit);
-        $string = trim($string, ' ,.');
+        $cutString = substr($string, 0, $limit);
+        $cutString = trim($cutString, ' ,.');
 
         // Find last space in truncated string
-        $breakpoint = strrpos($string, ' ');
+        $breakpoint = strrpos($cutString, ' ');
 
         if ($breakpoint === false) {
-            return $string.$cutter;
+            return $cutString.$cutter;
         } else {
-            $string = substr($string, 0, $breakpoint);
-            $string = trim($string, ' ,.');
-            $string .= $cutter;
+            $truncated = substr($cutString, 0, $breakpoint);
+            $truncated = trim($truncated, ' ,.');
+            $truncated .= $cutter;
             if ($returnArray) {
+                $remainder = $cutter.trim(substr($string, $breakpoint));
+
                 return [
                     'breakpoint' => $breakpoint,
-                    'string' => $string,
+                    'string' => $truncated,
+                    'remainder' => $remainder,
                 ];
             } else {
-                return $string;
+                return $truncated;
             }
         }
     }
