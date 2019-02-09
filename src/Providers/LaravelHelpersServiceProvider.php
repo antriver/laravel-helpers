@@ -40,7 +40,9 @@ class LaravelHelpersServiceProvider extends ServiceProvider
         );
 
         $this->registerQueryLogger();
-        DB::connection()->getPdo()->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+
+        // This makes everything break if the DB is down. Disabled.
+        //DB::connection()->getPdo()->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 
         // Use a different guard based on the route.
         // You can use $request->user()
